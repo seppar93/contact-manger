@@ -5,8 +5,9 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
+      // you can return only one div
       <div className="App">
-        <h1> TEST</h1>
+        <h1> The APP Componet</h1>
       </div>
     );
   }
