@@ -55,7 +55,7 @@ class Contacts extends Component {
   render() {
     const { contacts } = this.state;
     return (
-      <div>
+      <React.Fragment>
         {contacts.map(contact => (
           // <h1>{contact.name}</h1> we want to bring our contact from our compoenent
           // this is for each property
@@ -68,7 +68,7 @@ class Contacts extends Component {
 
           <Contact key={contact.id} contact={contact} /> // contact is expecting all the stuff
         ))}
-      </div>
+      </React.Fragment>
     );
   }
 }
