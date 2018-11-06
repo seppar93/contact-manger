@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Contacts from "./components/contacts/Contacts";
 import AddContact from "./components/contacts/AddContact";
+// import AddContactUncontrol from "./components/contacts/AddContactUncontrol.js";
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
         <div className="App">
           <Header /> {/* we added a default prop */}
           <div className="container">
+            {/* <AddContactUncontrol /> */}
             <AddContact />
             <Contacts />
             {/* we are looping through our state in Contacts and rendering it here   */}
