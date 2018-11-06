@@ -7,7 +7,8 @@ class AddContact extends Component {
   state = {
     name: "",
     email: "",
-    phone: ""
+    phone: "",
+    errors: {}
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -16,11 +17,26 @@ class AddContact extends Component {
     e.preventDefault();
 
     const { name, email, phone } = this.state;
+
+    // check for errors
+    if (name === "") {
+      this.setState({ errors: { name: "Name is required" } });
+      return;
+    }
+    if (email === "") {
+      this.setState({ errors: { email: "Email is required" } });
+      return;
+    }
+    if (phone === "") {
+      this.setState({ errors: { phone: "Phone is required" } });
+      return;
+    }
     const newContact = {
       id: uuid(),
       name,
       email,
-      phone
+      phone,
+      errors: {}
     };
     dispatch({ type: "ADD_CONTACT", payload: newContact });
 
@@ -33,7 +49,7 @@ class AddContact extends Component {
   };
 
   render() {
-    const { name, email, phone } = this.state;
+    const { name, email, phone, errors } = this.state;
 
     return (
       <Consumer>
@@ -50,6 +66,7 @@ class AddContact extends Component {
                     placeholder="Enter Name"
                     value={name}
                     onChange={this.onChange}
+                    error={errors.name}
                   />
                   {/* <div className="form-group">
                     <label htmlFor="name"> Name </label>
@@ -70,6 +87,7 @@ class AddContact extends Component {
                     placeholder="Enter Email"
                     value={email}
                     onChange={this.onChange}
+                    error={errors.email}
                   />
 
                   {/* <div className="form-group">
@@ -90,6 +108,7 @@ class AddContact extends Component {
                     placeholder="Enter Phone number"
                     value={phone}
                     onChange={this.onChange}
+                    error={errors.phone}
                   />
 
                   {/* <div className="form-group">
