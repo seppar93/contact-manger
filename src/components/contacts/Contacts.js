@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Contact from "./Contact";
-import { Consumer } from "../context";
+import { Consumer } from "../../context";
 
 class Contacts extends Component {
   // THIS FORMAT IS USED FOR INITLIZASTION
